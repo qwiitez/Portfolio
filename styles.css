@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fbeef5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.avatar {
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.about {
+    margin-top: 30px;
+}
+
+.about h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.about p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
+}
+
+.projects {
+    margin-top: 30px;
+}
+
+.projects h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.project-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.project-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.project-link:hover {
+    background-color: #eaeaea;
+    transform: translateY(-3px);
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.project-description {
+    font-size: 14px;
+    color: #777;
+    margin-top: 5px;
+}
+
+.arrow {
+    font-size: 24px;
+    color: #777;
+}
+
+.footer {
+    margin-top: 50px;
+    padding: 15px;
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.language-switcher {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.lang-btn {
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.lang-btn:hover {
+    background-color: #555;
+    transform: translateY(-2px);
+}
+
+.lang-btn.active {
+    background-color: #007bff;
+    color: #fff;
+}
