@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="language-switcher">
+                <button onclick="changeLanguage('en')" class="lang-btn" id="btn-en">EN</button>
+                <button onclick="changeLanguage('ru')" class="lang-btn" id="btn-ru">RU</button>
+                <button onclick="changeLanguage('lt')" class="lang-btn" id="btn-lt">LT</button>
+            </div>
+            <div class="avatar">🖥️</div>
+            <h1 id="header-title">Hi, my name is Danylo Kustov</h1>
+            <p class="description" id="header-description">
+                An aspiring web developer with experience in HTML and CSS. Interested in web design and eager to develop
+                skills in this area!
+            </p>
+        </header>
+
+        <section class="about">
+            <h2 id="about-title">About Me</h2>
+            <p id="about-description">
+                Hi, my name is Danylo Kustov and I specialize in creating web pages using HTML and CSS. My goal is to
+                develop user-friendly and aesthetically pleasing interfaces, simplify complex processes, and share my
+                knowledge with others.
+            </p>
+        </section>
+
+        <section class="projects">
+            <h2 id="projects-title">Projects & Links</h2>
+            <div class="project-links">
+                <a href="https://qwiitez.github.io/Goose/" target="_blank" class="project-link">
+                    <div class="project-content">
+                        <span class="project-title" id="project-title">My First Project</span>
+                        <span class="project-description" id="project-description">Ukrainian site about fictional
+                            geese</span>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p id="footer-text">© 2025 qwiitez. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
