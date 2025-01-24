@@ -65,3 +65,158 @@ document.getElementById("language-selector").addEventListener("change", function
 
     document.getElementById("review-button").textContent = translation.reviewButton;
 });
+
+
+
+// Получение элементов
+const reviewForm = document.getElementById("review-form");
+const reviewList = document.getElementById("review-list");
+const nameInput = document.getElementById("name-input");
+const reviewInput = document.getElementById("review-input");
+
+// Функция для отображения всех отзывов
+function displayReviews() {
+    // Очищаем список отзывов
+    reviewList.innerHTML = "";
+
+    // Получаем отзывы из localStorage
+    const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+    // Создаём элементы для каждого отзыва
+    reviews.forEach((review, index) => {
+        const reviewItem = document.createElement("div");
+        reviewItem.classList.add("review-item");
+
+        // Дата и имя
+        reviewItem.innerHTML = `
+            <h4>${review.name} - <span class="review-date">${review.date}</span></h4>
+            <p>${review.text}</p>
+            <p>Rating: ${review.rating}/5</p>
+            <button class="delete-btn" data-index="${index}">Delete</button>
+        `;
+
+        reviewList.appendChild(reviewItem);
+    });
+
+    // Добавляем обработчики событий для кнопок удаления
+    const deleteButtons = document.querySelectorAll(".delete-btn");
+    deleteButtons.forEach((btn) => {
+        btn.addEventListener("click", confirmDeleteReview);
+    });
+}
+
+// Функция для добавления нового отзыва
+function addReview(event) {
+    event.preventDefault();
+
+    // Получение данных из формы
+    const name = nameInput.value.trim();
+    const text = reviewInput.value.trim();
+    const rating = document.querySelector('input[name="rating"]:checked')?.value || "0";
+    const date = new Date().toLocaleString();
+
+    if (!name || !text || !rating) {
+        alert("Please fill out all fields.");
+        return;
+    }
+
+    // Новый отзыв
+    const newReview = { name, text, rating, date };
+
+    // Сохраняем отзыв в localStorage
+    const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+    reviews.push(newReview);
+    localStorage.setItem("reviews", JSON.stringify(reviews));
+
+    // Очищаем форму и обновляем список
+    reviewForm.reset();
+    displayReviews();
+}
+
+// Функция для подтверждения удаления
+function confirmDeleteReview(event) {
+    const index = event.target.dataset.index;
+
+    // Открытие окна подтверждения
+    const confirmed = confirm("Are you sure you want to delete this review?");
+    if (confirmed) {
+        deleteReview(index);
+    }
+}
+
+// Функция для удаления отзыва
+function deleteReview(index) {
+    const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+    // Удаляем отзыв из массива и сохраняем
+    reviews.splice(index, 1);
+    localStorage.setItem("reviews", JSON.stringify(reviews));
+
+    // Обновляем список
+    displayReviews();
+}
+
+// Инициализация
+reviewForm.addEventListener("submit", addReview);
+document.addEventListener("DOMContentLoaded", displayReviews);
+
+
+// Получение элементов модального окна
+const deleteModal = document.getElementById("delete-modal");
+const confirmDeleteBtn = document.getElementById("confirm-delete");
+const cancelDeleteBtn = document.getElementById("cancel-delete");
+
+// Переменная для хранения индекса удаляемого отзыва
+let reviewToDeleteIndex = null;
+
+// Функция для открытия модального окна
+function openDeleteModal(index) {
+    reviewToDeleteIndex = index; // Сохраняем индекс отзыва
+    deleteModal.style.display = "flex"; // Показываем модальное окно
+}
+
+// Функция для закрытия модального окна
+function closeDeleteModal() {
+    reviewToDeleteIndex = null; // Сбрасываем индекс
+    deleteModal.style.display = "none"; // Скрываем модальное окно
+}
+
+// Функция для подтверждения удаления
+function handleConfirmDelete() {
+    if (reviewToDeleteIndex !== null) {
+        deleteReview(reviewToDeleteIndex); // Удаляем отзыв
+        closeDeleteModal(); // Закрываем окно
+    }
+}
+
+// Обработчики событий для кнопок модального окна
+confirmDeleteBtn.addEventListener("click", handleConfirmDelete);
+cancelDeleteBtn.addEventListener("click", closeDeleteModal);
+
+// Функция для отображения всех отзывов (добавляем вызов модального окна)
+function displayReviews() {
+    reviewList.innerHTML = "";
+    const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+    reviews.forEach((review, index) => {
+        const reviewItem = document.createElement("div");
+        reviewItem.classList.add("review-item");
+
+        reviewItem.innerHTML = `
+            <h4>${review.name} - <span class="review-date">${review.date}</span></h4>
+            <p>${review.text}</p>
+            <p>Rating: ${review.rating}/5</p>
+            <button class="delete-btn" data-index="${index}">Delete</button>
+        `;
+
+        reviewList.appendChild(reviewItem);
+    });
+
+    const deleteButtons = document.querySelectorAll(".delete-btn");
+    deleteButtons.forEach((btn) => {
+        btn.addEventListener("click", (event) => {
+            const index = event.target.dataset.index;
+            openDeleteModal(index); // Открываем модальное окно
+        });
+    });
+}
