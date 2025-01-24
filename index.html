@@ -9,17 +9,6 @@
 </head>
 
 <body>
-    <!-- Модальное окно подтверждения -->
-    <div id="delete-modal" class="modal">
-        <div class="modal-content">
-            <p id="modal-text">Are you sure you want to delete this review?</p>
-            <div class="modal-actions">
-                <button id="confirm-delete" class="modal-btn confirm">Yes</button>
-                <button id="cancel-delete" class="modal-btn cancel">No</button>
-            </div>
-        </div>
-    </div>
-
     <div class="container">
         <header class="header">
             <div class="avatar">🖥️</div>
@@ -36,11 +25,12 @@
                         alt="Facebook" class="icon">
                 </a>
             </div>
-            <select id="language-selector">
-                <option value="en">English</option>
-                <option value="ru">Русский</option>
-                <option value="lt">Lietuvių</option>
-            </select>
+        <select id="language-selector" class="language-selector">
+            <option value="en">English</option>
+            <option value="ru">Русский</option>
+            <option value="lt">Lietuvių</option>
+        </select>
+
         </header>
         <section class="about">
             <h2 id="about-title">About Me</h2>
@@ -48,28 +38,16 @@
                 CSS. My goal is to develop user-friendly and aesthetically pleasing interfaces, simplify complex
                 processes, and share my knowledge with others.</p>
         </section>
-        <section class="reviews">
-            <h2 id="reviews-title">Reviews</h2>
-            <form id="review-form">
-                <input type="text" id="name-input" placeholder="Your Name" required />
-                <textarea id="review-input" placeholder="Write your review here..." required></textarea>
-                <div class="rating">
-                    <label for="rating-input" id="rating-text">Rate:</label>
-                    <select id="rating-input" required>
-                        <option value="" disabled selected>Choose...</option>
-                        <option value="5">5 - Excellent</option>
-                        <option value="4">4 - Good</option>
-                        <option value="3">3 - Average</option>
-                        <option value="2">2 - Poor</option>
-                        <option value="1">1 - Terrible</option>
-                    </select>
-                </div>
-                <button type="submit" class="review-btn" id="review-button">Post Review</button>
-            </form>
-            <div id="review-list">
-                <!-- Reviews will appear here -->
-            </div>
-        </section>
+        <section class="projects">
+            <h2 id="projects-title">Projects & Links</h2>
+            <div class="project-links">
+                <a href="https://qwiitez.github.io/Goose/" target="_blank" class="project-link">
+                    <div class="project-content">
+                        <span id="project1-title" class="project-title">My First Project</span>
+                        <span id="project1-description" class="project-description">Ukrainian site about fictional geese</span>
+                    </div>
+                    <div class="arrow">→</div>
+                </a>
         </section>
         <footer class="footer">
             <p>© 2025 qwiitez. All rights reserved.</p>
