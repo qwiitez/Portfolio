@@ -14,16 +14,16 @@ body {
 }
 
 .container {
-            max-width: 800px;
-            margin: 50px auto;
-            /* Увеличенный отступ сверху */
-            padding: 20px;
-            background-color: #000;
-            /* Чёрный фон контейнера */
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 255, 0, 0.4);
-            /* Равномерная зелёная подсветка */
-}
+                max-width: 800px;
+                margin: 50px auto;
+                /* Отступ сверху */
+                padding: 20px;
+                background-color: #000;
+                /* Чёрный фон контейнера */
+                border-radius: 15px;
+                box-shadow: 0 -20px 30px rgba(0, 255, 0, 0.6), 0 10px 20px rgba(0, 255, 0, 0.4);
+                /* Дополнительная тень сверху */
+            }
 
 /* Хедер */
 .header {
