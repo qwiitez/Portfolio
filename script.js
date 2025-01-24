@@ -3,49 +3,65 @@ const translations = {
         headerTitle: "Hi, my name is Danylo Kustov",
         headerDescription: "An aspiring web developer with experience in HTML and CSS. Interested in web design and eager to develop skills in this area!",
         aboutTitle: "About Me",
-        aboutDescription: "Hi, my name is Danylo Kustov and I specialize in creating web pages using HTML and CSS. My goal is to develop user-friendly and aesthetically pleasing interfaces, simplify complex processes, and share my knowledge with others.",
-        projectsTitle: "Projects & Links",
-        projectTitle: "My First Project",
-        projectDescription: "Ukrainian site about fictional geese",
-        footerText: "© 2025 qwiitez. All rights reserved."
+        aboutContent: "Hi, my name is Danylo Kustov and I specialize in creating web pages using HTML and CSS. My goal is to develop user-friendly and aesthetically pleasing interfaces, simplify complex processes, and share my knowledge with others.",
+        reviewsTitle: "Reviews",
+        namePlaceholder: "Your Name",
+        reviewPlaceholder: "Write your review here...",
+        ratingText: "Rate:",
+        ratingOptions: ["Choose...", "5 - Excellent", "4 - Good", "3 - Average", "2 - Poor", "1 - Terrible"],
+        reviewButton: "Post Review",
     },
     ru: {
         headerTitle: "Привет, меня зовут Данило Кустов",
-        headerDescription: "Начинающий веб-разработчик с опытом работы в HTML и CSS. Интересуюсь веб-дизайном и хочу развиваться в этой области!",
+        headerDescription: "Начинающий веб-разработчик с опытом работы с HTML и CSS. Интересуюсь веб-дизайном и стремлюсь развивать навыки в этой области!",
         aboutTitle: "Обо мне",
-        aboutDescription: "Привет, меня зовут Данило Кустов, и я специализируюсь на создании веб-страниц с использованием HTML и CSS. Моя цель - разрабатывать удобные и эстетичные интерфейсы, упрощать сложные процессы и делиться знаниями с другими.",
-        projectsTitle: "Проекты и ссылки",
-        projectTitle: "Мой первый проект",
-        projectDescription: "Украинский сайт о вымышленных гусях",
-        footerText: "© 2025 qwiitez. Все права защищены."
+        aboutContent: "Привет, меня зовут Данило Кустов, и я специализируюсь на создании веб-страниц с использованием HTML и CSS. Моя цель — разрабатывать удобные и эстетически приятные интерфейсы, упрощать сложные процессы и делиться своими знаниями с другими.",
+        reviewsTitle: "Отзывы",
+        namePlaceholder: "Ваше имя",
+        reviewPlaceholder: "Напишите свой отзыв здесь...",
+        ratingText: "Оценка:",
+        ratingOptions: ["Выбрать...", "5 - Отлично", "4 - Хорошо", "3 - Средне", "2 - Плохо", "1 - Ужасно"],
+        reviewButton: "Оставить отзыв",
     },
     lt: {
-        headerTitle: "Labas, mano vardas Danylo Kustov",
-        headerDescription: "Pradedantysis interneto svetainių kūrėjas, turintis HTML ir CSS patirties. Domiuosi interneto dizainu ir noriu tobulėti šioje srityje!",
+        headerTitle: "Sveiki, mano vardas Danylo Kustov",
+        headerDescription: "Pradedantis interneto kūrėjas, turintis HTML ir CSS patirties. Domiuosi interneto dizainu ir siekiu tobulinti įgūdžius šioje srityje!",
         aboutTitle: "Apie mane",
-        aboutDescription: "Labas, mano vardas Danylo Kustov, ir aš specializuojuosi kurti interneto puslapius, naudodamas HTML ir CSS. Mano tikslas yra kurti patogias ir estetiškai patrauklias sąsajas, supaprastinti sudėtingus procesus ir dalintis žiniomis su kitais.",
-        projectsTitle: "Projektai ir nuorodos",
-        projectTitle: "Mano pirmasis projektas",
-        projectDescription: "Ukrainos svetainė apie išgalvotus žąsis",
-        footerText: "© 2025 qwiitez. Visos teisės saugomos."
-    }
+        aboutContent: "Sveiki, mano vardas Danylo Kustov ir aš specializuojuosi kuriant tinklalapius naudojant HTML ir CSS. Mano tikslas - kurti patogias ir estetiškai patrauklias sąsajas, supaprastinti sudėtingus procesus ir dalytis savo žiniomis su kitais.",
+        reviewsTitle: "Atsiliepimai",
+        namePlaceholder: "Jūsų vardas",
+        reviewPlaceholder: "Rašykite savo atsiliepimą čia...",
+        ratingText: "Įvertinimas:",
+        ratingOptions: ["Pasirinkti...", "5 - Puiku", "4 - Gerai", "3 - Vidutiniškai", "2 - Blogai", "1 - Siaubinga"],
+        reviewButton: "Palikti atsiliepimą",
+    },
 };
 
-function changeLanguage(lang) {
-    document.getElementById("header-title").textContent = translations[lang].headerTitle;
-    document.getElementById("header-description").textContent = translations[lang].headerDescription;
-    document.getElementById("about-title").textContent = translations[lang].aboutTitle;
-    document.getElementById("about-description").textContent = translations[lang].aboutDescription;
-    document.getElementById("projects-title").textContent = translations[lang].projectsTitle;
-    document.getElementById("project-title").textContent = translations[lang].projectTitle;
-    document.getElementById("project-description").textContent = translations[lang].projectDescription;
-    document.getElementById("footer-text").textContent = translations[lang].footerText;
+document.getElementById("language-selector").addEventListener("change", function () {
+    const selectedLanguage = this.value;
+    const translation = translations[selectedLanguage];
 
-    localStorage.setItem("lang", lang);
+    // Перевод заголовков
+    document.getElementById("header-title").textContent = translation.headerTitle;
+    document.getElementById("header-description").textContent = translation.headerDescription;
+    document.getElementById("about-title").textContent = translation.aboutTitle;
+    document.getElementById("about-content").textContent = translation.aboutContent;
+    document.getElementById("reviews-title").textContent = translation.reviewsTitle;
 
-    document.querySelectorAll(".lang-btn").forEach((btn) => btn.classList.remove("active"));
-    document.getElementById(`btn-${lang}`).classList.add("active");
-}
+    // Перевод отзывов
+    document.getElementById("name-input").placeholder = translation.namePlaceholder;
+    document.getElementById("review-input").placeholder = translation.reviewPlaceholder;
+    document.getElementById("rating-text").textContent = translation.ratingText;
 
-const savedLang = localStorage.getItem("lang") || "en";
-changeLanguage(savedLang);
+    const ratingInput = document.getElementById("rating-input");
+    ratingInput.innerHTML = ""; // Очистить старые опции
+    translation.ratingOptions.forEach((option, index) => {
+        const opt = document.createElement("option");
+        opt.value = index === 0 ? "" : 5 - (index - 1); // Значение от 5 до 1
+        opt.textContent = option;
+        if (index === 0) opt.disabled = true;
+        ratingInput.appendChild(opt);
+    });
+
+    document.getElementById("review-button").textContent = translation.reviewButton;
+});
