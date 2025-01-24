@@ -11,44 +11,57 @@
 <body>
     <div class="container">
         <header class="header">
-            <div class="language-switcher">
-                <button onclick="changeLanguage('en')" class="lang-btn" id="btn-en">EN</button>
-                <button onclick="changeLanguage('ru')" class="lang-btn" id="btn-ru">RU</button>
-                <button onclick="changeLanguage('lt')" class="lang-btn" id="btn-lt">LT</button>
-            </div>
             <div class="avatar">🖥️</div>
             <h1 id="header-title">Hi, my name is Danylo Kustov</h1>
-            <p class="description" id="header-description">
-                An aspiring web developer with experience in HTML and CSS. Interested in web design and eager to develop
-                skills in this area!
-            </p>
-        </header>
-
-        <section class="about">
-            <h2 id="about-title">About Me</h2>
-            <p id="about-description">
-                Hi, my name is Danylo Kustov and I specialize in creating web pages using HTML and CSS. My goal is to
-                develop user-friendly and aesthetically pleasing interfaces, simplify complex processes, and share my
-                knowledge with others.
-            </p>
-        </section>
-
-        <section class="projects">
-            <h2 id="projects-title">Projects & Links</h2>
-            <div class="project-links">
-                <a href="https://qwiitez.github.io/Goose/" target="_blank" class="project-link">
-                    <div class="project-content">
-                        <span class="project-title" id="project-title">My First Project</span>
-                        <span class="project-description" id="project-description">Ukrainian site about fictional
-                            geese</span>
-                    </div>
-                    <div class="arrow">→</div>
+            <p id="header-description">An aspiring web developer with experience in HTML and CSS. Interested in web
+                design and eager to develop skills in this area!</p>
+            <div class="social-links">
+                <a href="https://github.com/qwiitez" target="_blank">
+                    <img src="https://avatars.slack-edge.com/2020-11-25/1527503386626_319578f21381f9641cd8_512.png"
+                        alt="GitHub" class="icon">
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61561922788012&sk=about_places" target="_blank">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiXN9xSEe8unzPBEQOeAKXd9Q55efGHGB9BA&s"
+                        alt="Facebook" class="icon">
                 </a>
             </div>
+            <select id="language-selector">
+                <option value="en">English</option>
+                <option value="ru">Русский</option>
+                <option value="lt">Lietuvių</option>
+            </select>
+        </header>
+        <section class="about">
+            <h2 id="about-title">About Me</h2>
+            <p id="about-content">Hi, my name is Danylo Kustov and I specialize in creating web pages using HTML and
+                CSS. My goal is to develop user-friendly and aesthetically pleasing interfaces, simplify complex
+                processes, and share my knowledge with others.</p>
         </section>
-
+        <section class="reviews">
+            <h2 id="reviews-title">Reviews</h2>
+            <form id="review-form">
+                <input type="text" id="name-input" placeholder="Your Name" required />
+                <textarea id="review-input" placeholder="Write your review here..." required></textarea>
+                <div class="rating">
+                    <label for="rating-input" id="rating-text">Rate:</label>
+                    <select id="rating-input" required>
+                        <option value="" disabled selected>Choose...</option>
+                        <option value="5">5 - Excellent</option>
+                        <option value="4">4 - Good</option>
+                        <option value="3">3 - Average</option>
+                        <option value="2">2 - Poor</option>
+                        <option value="1">1 - Terrible</option>
+                    </select>
+                </div>
+                <button type="submit" class="review-btn" id="review-button">Post Review</button>
+            </form>
+            <div id="review-list">
+                <!-- Reviews will appear here -->
+            </div>
+        </section>
+        </section>
         <footer class="footer">
-            <p id="footer-text">© 2025 qwiitez. All rights reserved.</p>
+            <p>© 2025 qwiitez. All rights reserved.</p>
         </footer>
     </div>
     <script src="script.js"></script>
