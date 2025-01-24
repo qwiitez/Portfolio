@@ -14,12 +14,15 @@ body {
 }
 
 .container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #000;
-    border-radius: 15px;
-    box-shadow: 0 10px 15px rgba(0, 255, 0, 0.2);
+            max-width: 800px;
+            margin: 50px auto;
+            /* Увеличенный отступ сверху */
+            padding: 20px;
+            background-color: #000;
+            /* Чёрный фон контейнера */
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 255, 0, 0.4);
+            /* Равномерная зелёная подсветка */
 }
 
 /* Хедер */
